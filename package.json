@@ -1,0 +1,29 @@
+{
+  "name": "movie-api",
+  "version": "1.0.0",
+  "description": "Movies Database API",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon ./src/index.ts",
+    "start": "tsc && npm run dev"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "typescript"
+  ],
+  "author": "Ahmed Sayed <ahmedll.shafiey@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "mongoose": "^8.7.1",
+    "nodemon": "^3.1.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "zod": "^3.23.8"
+  }
+}
