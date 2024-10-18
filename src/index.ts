@@ -18,9 +18,6 @@ class App {
     }
 
     protected routes(): void {
-        this.app.route("/").get((req: Request, res: Response) => {
-            res.send("Home Dir");
-        });
         this.app.use("/api/v1/users", UserRoutes);
     }
 
