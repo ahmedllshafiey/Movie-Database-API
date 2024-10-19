@@ -7,7 +7,7 @@ export class RUser {
   async save(user: IUser): Promise<void> {
     try {
       await User.create({
-        id: uniqid(), // Generates a unique string ID
+        id: uniqid(),
         name: user.name,
         email: user.email,
         password: user.password,

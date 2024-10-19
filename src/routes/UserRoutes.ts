@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { UserController } from "../controller/UserController";
+import { authenticateJWT, authorizeRole } from "../middlewares/authMiddleware";
 
 class UserRoutes {
   public router: Router;
@@ -12,11 +13,11 @@ class UserRoutes {
   }
 
   public routes(): void {
-    this.router.post("/", this.userController.createUser);
-    this.router.patch("/:id", this.userController.updateUser);
-    this.router.delete("/:id", this.userController.deleteUser);
-    this.router.get("/:id", this.userController.getUser);
-    this.router.get("/", this.userController.getUsers);
+    this.router.post("/", authenticateJWT, authorizeRole("admin"), this.userController.createUser);
+    this.router.patch("/:id", authenticateJWT, authorizeRole("admin"), this.userController.updateUser);
+    this.router.delete("/:id", authenticateJWT, authorizeRole("admin"), this.userController.deleteUser);
+    this.router.get("/:id", authenticateJWT, authorizeRole("admin"), this.userController.getUser);
+    this.router.get("/", authenticateJWT, authorizeRole("admin"), this.userController.getUsers);
   }
 }
 
